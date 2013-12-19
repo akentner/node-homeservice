@@ -1,0 +1,55 @@
+{
+  "author": "Alexander Kentner <akentner@lexsign.de>",
+  "name": "homeservice",
+  "homepage": "http://akentner.de",
+  "description": "Homeservice",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akentner/node-homeservice.git"
+  },
+  "main": "./src/app.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "bin": {
+    "homeservice": "./bin/homeservice"
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+  "dependencies": {
+    "restify": "2.6.0",
+    "node-xmpp": "0.10.x",
+    "postal": "0.8.9",
+    "amqp":"0.1.x",
+    "node-stringprep": "0.1.x",
+    "moment": "2.4.x",
+    "mongoose": "*",
+    "monk": "*",
+    "socket.io": "*",
+    "jade": "*"
+  },
+  "devDependencies": {
+    "cover": "0.2.8",
+    "filed": "0.0.7",
+    "nodeunit": "0.8.0",
+    "watershed": "0.3.0"
+  },
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "nodeunit ./test"
+  },
+  "dist": {
+    "shasum": "cf52490826523ea257d9811d6a7964846d98bc68"
+  },
+  "bugs": {
+    "url": "https://github.com/akentner/node-homeservice/issues"
+  },
+  "keywords": [
+    "home",
+    "automation"
+  ],
+  "license": "BSD-2-Clause"
+}

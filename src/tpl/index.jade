@@ -1,0 +1,54 @@
+doctype 5
+html(lang="de")
+  head
+    title= pageTitle
+  body
+    h1 Jade - node template engine
+    #container.col
+      if youAreUsingJade
+        p You are amazing
+      else
+        p Get on it!
+      p.
+        Jade is a terse and simple
+        templating language with a
+        strong focus on performance
+        and powerful features.
+      script(type='text/javascript').
+	    var socket = io.connect('http://192.168.178.10:' . '#{socketio.port}');
+	      // Data
+	      var lineEventsActivity = new TimeSeries();
+          socket.on('events', function (data) {
+            lineEventsActivity.append(new Date(data._date).getTime(), 10);
+              console.log('event', data);
+          });
+          socket.on('chart', function (data) {
+            console.log('chart', data);
+          });
+          socket.on('messages', function (data) {
+             console.log('msg', data);
+	        });
+
+	        var chartEventsActivity = new SmoothieChart({
+	            millisPerPixel: 500,
+	            maxValue:12,
+	            minValue:-2,
+	            interpolation:'linear',
+	            scaleSmoothing: 0.75,
+	            grid:{
+	                millisPerLine:50000,
+	                verticalSections:0
+	            },
+	            labels: {
+	                disabled: true,
+	                precision: 0
+	            },
+	            timestampFormatter: SmoothieChart.timeFormatter
+	        });
+
+	        setInterval(function() {
+	            lineEventsActivity.append(new Date().getTime(), 0);
+	        }, 1000);
+
+	        chartEventsActivity.addTimeSeries(lineEventsActivity, {lineWidth: 2, strokeStyle: '#00ff00', fillStyle: 'transparent'});
+	        chartEventsActivity.streamTo(document.getElementById('chartEventsActivity'), 0);
