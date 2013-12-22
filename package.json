@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git://github.com/akentner/node-homeservice.git"
   },
-  "main": "./src/app.js",
+  "main": "./src/server/index.js",
   "directories": {
     "doc": "doc",
     "test": "test"
@@ -35,10 +35,16 @@
     "cover": "0.2.8",
     "filed": "0.0.7",
     "nodeunit": "0.8.0",
-    "watershed": "0.3.0"
+    "watershed": "0.3.0",
+    "bower": "*",
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-concat": "*"
   },
   "scripts": {
-    "start": "node src/app.js",
+    "server": "node src/server/index.js",
     "test": "nodeunit ./test"
   },
   "dist": {
